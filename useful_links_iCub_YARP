@@ -1,0 +1,44 @@
+
+// General
+https://github.com/robotology                   # github site with many issue discussions and repositories
+
+// YARP
+https://github.com/robotology/yarp              # YARP repository
+http://www.yarp.it/index.html                   # YARP website startpage
+http://www.yarp.it/install_yarp_linux.html      # YARP installation on linux
+http://www.yarp.it/yarp_swig.html               # YARP Python bindings with SWIG
+http://www.yarp.it/usergroup1.html              # YARP API documentation
+
+
+// iCub; iCub-Simulator
+https://github.com/robotology/icub-main         # iCub-simulator repository
+http://www.icub.org/                            # iCub website
+
+http://wiki.icub.org/wiki/Manual                                         # startpage of the iCub manual
+http://wiki.icub.org/wiki/Simulator_README                               # iCub-simulator ReadMe file
+http://wiki.icub.org/wiki/Tactile_sensors_(aka_Skin)                     # description for the iCub tactile sensors
+http://wiki.icub.org/wiki/Citations                                      # citations for the work with the iCub
+
+https://icub-tech-iit.github.io/documentation/                                                                  # new iCub documentation -> very helpful also for real robot
+https://icub-tech-iit.github.io/documentation/sw_installation/linux_from_sources_manual/                        # installation of the iCub simulator on linux
+https://icub-tech-iit.github.io/documentation/icub_kinematics/icub-joints/icub-joints/                          # description of the iCub joints
+https://icub-tech-iit.github.io/documentation/icub_kinematics/icub-forward-kinematics/icub-forward-kinematics/  # information about the robot kinematics; robot reference frame
+
+https://robotology.github.io/robotology-documentation/doc/html/icub_tutorials.html                              # mainly C++ software examples
+https://robotology.github.io/robotology-documentation/doc/html/icub_cartesian_interface.html                    # description of the cartesian control interface (control the robot with 3D-positions instead of joint angles)
+https://robotology.github.io/robotology-documentation/doc/html/icub_anyrobot_cartesian_interface.html           # further information for the cartesian interface, also for the usage with other robots
+https://robotology.github.io/robotology-documentation/doc/html/group__icub__iCubSkinGui.html                    # description of the iCub skinGui
+
+
+// Gazebo
+http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install            # Installation instructions for gazebo
+http://gazebosim.org/tutorials                                           # tutorials regarding gazebo simulator
+https://github.com/robotology/yarp-gazebo-plugins                        # Gazebo-YARP-plugins repository
+<https://github.com/robotology/icub-models>                              # iCub models e.g. for gazebo simulator
+https://github.com/robotology/icub-gazebo                                # iCub models for gazebo simulator (deprecated)
+http://sdformat.org/spec                                                 # description of the sdf format
+
+
+// Superbuild
+https://github.com/robotology/robotology-superbuild                      # superbuild for YARP and iCub repositories to facilitate the installation process
+https://github.com/robotology/ycm                                        # repo with additional cmake modules (used by the superbuild)

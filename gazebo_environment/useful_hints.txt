@@ -1,0 +1,8 @@
+
+World files:
+Scene description:
+    <scene> 
+        <background> 0 255 0 </background>  # predefine the backgroundcolor for the current world
+        <shadow> False </shadow>            # turn off shadows -> helpful if objects and robot seems to dark
+    </scene>
+This snippet is added to the .world file, which should be used for the gazebo experiments

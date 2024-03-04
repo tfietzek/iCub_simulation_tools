@@ -1,0 +1,25 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+    <model name='cup'>
+        <pose frame=''>0.0 0.0 0.0 0.0 0.0 0.</pose>
+        <link name='base_link_cup'>
+            <gravity>0</gravity>
+            <visual name='base_link_cup_vis'>
+                <geometry>
+                    <mesh>
+                        <scale>0.08 0.08 0.08</scale>
+                        <uri>model://meshes/cup_gazebo.dae</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name='base_link_cup_col'>
+                <geometry>
+                    <mesh>
+                        <scale>0.08 0.08 0.08</scale>
+                        <uri>model://meshes/cup_gazebo.dae</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+    </model>
+</sdf>

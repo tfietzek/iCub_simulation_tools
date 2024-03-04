@@ -1,0 +1,25 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+    <model name='bear'>
+        <pose frame=''>1.0 2.0 3.0 4.0 5.0 6.</pose>
+        <link name='base_link_bear'>
+            <gravity>0</gravity>
+            <visual name='bear_vis'>
+                <geometry>
+                    <mesh>
+                        <scale>0.04 0.04 0.04</scale>
+                        <uri>model://meshes/bear_gazebo.dae</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name='bear_col'>
+                <geometry>
+                    <mesh>
+                        <scale>0.04 0.04 0.04</scale>
+                        <uri>model://meshes/bear_gazebo.dae</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+    </model>
+</sdf>

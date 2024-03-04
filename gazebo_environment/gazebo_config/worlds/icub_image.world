@@ -1,0 +1,62 @@
+<!--
+  Copyright (C) 2007-2013 Istituto Italiano di Tecnologia ADVR, iCub Facility & RBCS
+  Authors: Mingo Enrico, Alessio Rocchi, Mirko Ferrati, Silvio Traversaro, Alessandro Settimi and Francesco Romano
+  CopyPolicy: Released under the terms of the LGPLv2.1 or later, see LGPL.TXT
+-->
+
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="default">
+
+    <!-- Light -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <light type="point" name="point_light">
+      <pose> 0 0 6 0 0 0</pose>
+      <diffuse> 1 1 1 1</diffuse>
+      <specular> .9 .9 .9 1 </specular>
+      <attenuation>
+        <range>2000</range>
+        <linear>0.6</linear>
+        <constant>0.9</constant>
+        <quadratic>0.05</quadratic>
+      </attenuation>
+      <cast_shadows>false</cast_shadows>
+    </light>
+
+    <light type="directional" name="direct">
+      <pose> 0.0 0.0 0.9 0 0 0</pose>
+      <diffuse> 0.5 .5 .5 .5 </diffuse>
+      <specular> 0.5 .5 .5 .5 </specular>
+      <direction> 1. 0. 0. </direction>
+      <attenuation>
+        <range>20</range>
+        <linear>0.5</linear>
+        <constant>0.7</constant>
+        <quadratic>0.05</quadratic>
+      </attenuation>
+      <cast_shadows>false</cast_shadows>
+    </light>
+
+    <scene> 
+        <background> 255 255 255 </background>  # predefine the backgroundcolor for the current world
+        <shadow> 0 </shadow>            # turn off shadows -> helpful if objects and robot seems to dark
+    </scene>
+
+    <!-- Ground Plane -->
+    <include>
+      <uri>model://ground_plane_white</uri>
+    </include>
+
+    <!-- iCub -->
+    <model name="iCub_fixed">
+        <include>
+          <uri>model://icub_with_hands_adapt</uri>
+     	</include>
+      <plugin name="world_interface" filename="libgazebo_yarp_worldinterface.so">
+        <yarpConfigurationFile>model://worldInterface/conf/worldInterface.ini</yarpConfigurationFile>
+      </plugin>
+    </model>
+  </world>
+</sdf>

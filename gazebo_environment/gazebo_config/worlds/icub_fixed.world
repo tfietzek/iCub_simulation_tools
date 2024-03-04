@@ -1,0 +1,34 @@
+<!--
+  Copyright (C) 2007-2013 Istituto Italiano di Tecnologia ADVR, iCub Facility & RBCS
+  Authors: Mingo Enrico, Alessio Rocchi, Mirko Ferrati, Silvio Traversaro, Alessandro Settimi and Francesco Romano
+  CopyPolicy: Released under the terms of the LGPLv2.1 or later, see LGPL.TXT
+-->
+
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="default">
+
+    <!-- Light -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Ground Plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- iCub -->
+  <model name="iCub_fixed">
+  	<include>
+     		<uri>model://icub_fixed</uri>
+   	</include>
+
+       <plugin name="world_interface" filename="libgazebo_yarp_worldinterface.so">
+          <yarpConfigurationFile>model://worldInterface/conf/worldInterface.ini</yarpConfigurationFile>
+       </plugin>
+
+  </model>
+   
+  </world>
+</sdf>

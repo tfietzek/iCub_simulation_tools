@@ -1,0 +1,2 @@
+Modelle im SDF Format haben eine Pose auf Ebene des Models, des Links und des Visuellen- und Kollisionskörpers.
+Die Funktion loadModelfromfileWithPose verändert die Model-Pose.

@@ -1,0 +1,25 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+    <model name='soccer_ball'>
+        <pose frame=''>0.0 0.0 0.0 0.0 0.0 0.</pose>
+        <link name='base_link_ball'>
+            <gravity>0</gravity>
+            <visual name='base_link_ball_vis'>
+                <geometry>
+                    <mesh>
+                        <scale>0.05 0.05 0.05</scale>
+                        <uri>model://ball/meshes/ballonFoot.obj</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name='base_link_ball_col'>
+                <geometry>
+                    <mesh>
+                        <scale>0.05 0.05 0.05</scale>
+                        <uri>model://ball/meshes/ballonFoot.obj</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+    </model>
+</sdf>

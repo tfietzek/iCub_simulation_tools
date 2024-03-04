@@ -1,0 +1,25 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+    <model name='pencil'>
+        <pose frame=''>0.0 0.0 0.0 0.0 0.0 0.</pose>
+        <link name='base_link_pencil'>
+            <gravity>0</gravity>
+            <visual name='base_link_pencil_vis'>
+                <geometry>
+                    <mesh>
+                        <scale>1.5 1.5 1.5</scale>
+                        <uri>model://meshes/pencil_gazebo.dae</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name='base_link_pencil_col'>
+                <geometry>
+                    <mesh>
+                        <scale>1.5 1.5 1.5</scale>
+                        <uri>model://meshes/pencil_gazebo.dae</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+    </model>
+</sdf>

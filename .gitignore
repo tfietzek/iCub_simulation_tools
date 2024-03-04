@@ -1,0 +1,12 @@
+# python related files
+*.pyc
+__pycache__
+*test*.py
+
+# vs code related files
+.vscode
+
+python_scripts/scene/
+
+# filesystem
+.directory

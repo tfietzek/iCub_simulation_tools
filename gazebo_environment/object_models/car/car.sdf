@@ -1,0 +1,25 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+    <model name='car'>
+        <pose frame=''>0.0 0.0 0.0 0.0 0.0 0.</pose>
+        <link name='base_link_car'>
+            <gravity>0</gravity>
+            <visual name='base_link_car_vis'>
+                <geometry>
+                    <mesh>
+                        <scale>1.2 1.2 1.2</scale>
+                        <uri>model://meshes/car_gazebo.dae</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+            <collision name='base_link_car_col'>
+                <geometry>
+                    <mesh>
+                        <scale>1.2 1.2 1.2</scale>
+                        <uri>model://meshes/car_gazebo.dae</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+        </link>
+    </model>
+</sdf>
