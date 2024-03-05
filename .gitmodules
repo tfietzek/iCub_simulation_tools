@@ -1,3 +1,3 @@
 [submodule "python_scripts/Python_libraries"]
 	path = python_scripts/Python_libraries
-	url = /home/torsten/Schreibtisch/iCub_General_Repos/iCub_simulator_tools/.gitmodules
+	url = https://github.com/tfietzek/iCub_Python_Lib.git
