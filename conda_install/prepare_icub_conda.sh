@@ -29,7 +29,7 @@ mamba install -n ${env_name} -c robotology -y opencv yarp icub-main gazebo-yarp-
 if [ -z "${ICUB_INSTALL_PREFIX}" ] || [ "${ICUB_INSTALL_PREFIX}" != "${conda_path}/envs/robotologyenv" ];
 then
 echo "Set env variables in bashrc"
-cp ~/.bashrc $BASEDIR/.bashrc_prep_bak
+cp ~/.bashrc $BASEDIR/.bashrc_prep_bak_$(date  "+%Y_%m_%d_%H_%M_%S")
 
 rcadditions="""
 alias iCub='mamba activate ${env_name}'

@@ -13,6 +13,6 @@ rm -rf $BASEDIR/miniforge
 rm -rf ~/.conda
 rm -rf ~/.condarc
 
-cp ~/.bashrc $BASEDIR/.bashrc_remove_bak
+cp ~/.bashrc $BASEDIR/.bashrc_remove_bak_$(date  "+%Y_%m_%d_%H_%M_%S")
 var=$(cat ~/.bashrc | grep -Pvi "ICUB_INSTALL_PREFIX|# Env Variables for iCub/YARP/Gazebo|alias='mamba activate iCub")
 echo -e "$var" > ~/.bashrc
