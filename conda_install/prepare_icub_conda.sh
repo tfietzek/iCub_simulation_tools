@@ -21,10 +21,10 @@ then
 else
     env_name=$1
 fi
-mamba create -n ${env_name}
-mamba activate ${env_name}
+conda create -n ${env_name}
+conda activate ${env_name}
 
-mamba install -n ${env_name} -c robotology -y opencv yarp icub-main gazebo-yarp-plugins icub-models
+conda install -n ${env_name} -c robotology -y opencv yarp icub-main gazebo-yarp-plugins icub-models
 
 if [ -z "${ICUB_INSTALL_PREFIX}" ] || [ "${ICUB_INSTALL_PREFIX}" != "${conda_path}/envs/robotologyenv" ];
 then
@@ -32,7 +32,7 @@ echo "Set env variables in bashrc"
 cp ~/.bashrc $BASEDIR/.bashrc_prep_bak_$(date  "+%Y_%m_%d_%H_%M_%S")
 
 rcadditions="""
-alias iCub='mamba activate ${env_name}'
+alias iCub='conda activate ${env_name}'
 export ICUB_INSTALL_PREFIX="$conda_path"/envs/"$env_name"
 """
 
