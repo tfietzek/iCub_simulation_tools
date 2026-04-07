@@ -10,3 +10,10 @@ python_scripts/scene/
 
 # filesystem
 .directory
+
+# conda
+miniforge/
+Miniforge3*.sh
+.bashrc_*
+
+*.zip
