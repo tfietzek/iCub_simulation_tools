@@ -6,8 +6,12 @@ On the other hand there are python scripts to control the iCub and the environme
 
 
 ## Folder structure
-- iCub_simulator_tools  -> main repository folder
-    - iCubSim_environment   -> scripts, ini- and config-files for the iCub-simulator environment
+- iCub_simulation_tools  -> main repository folder
+    - conda_install -> scripts to setup conda and a conda environment with the iCub software installed, including the related environment variables
+        - install_conda.sh -> setup conda
+        - prepare_icub_conda.sh -> conda environment with classic gazebo
+        - {experimental} prepare_icub_conda_gz.sh -> conda environment with modern gazebo
+    - {Deprecated} iCubSim_environment   -> scripts, ini- and config-files for the iCub-simulator environment
         - cartesian -> config files for the cartesian controller; from [icub-main][icubmain] repository
         - data      -> model and textures from the iCub simulator
             - model/models  -> iCub models of the iCub-simulator; from [icub-main][icubmain] repository
@@ -54,7 +58,7 @@ On the other hand there are python scripts to control the iCub and the environme
         - start_environment.sh          -> start the gazebo-simulator with two viewers for the eye cameras and a predefined world
 
     - python_scripts -> contains python script for the work with the iCub/iCub-simulator
-        - Python_libraries -> see [ReadMe](https://ai.informatik.tu-chemnitz.de/gogs/iCub_TUC/iCub_Python_Lib/src/master/ReadMe.md) for documentation
+        - Python_libraries -> see [ReadMe](https://github.com/tfietzek/iCub_Python_Lib/blob/master/ReadMe.md) for documentation
             - since this is a git submodule, execute the init_icubpylib.sh for initialization once
             - to update the submodule to the up-to-date version use the "git supdate" command
 
@@ -73,17 +77,12 @@ On the other hand there are python scripts to control the iCub and the environme
     -> all: controller for arms and legs
     -> no_legs: controller only for arms
 
-- The [HowToStart](./HowToStart.md) explain the installation process on Linux.
 - See the documents in [iCub_control_system](./iCub_control_system) for more information about how to control the iCub
 - The start_... scripts use xterm to seperately start the different tools. In case of errors with these scripts make sure that xterm is installed (sudo apt install xterm)
 
 
 ## Useful links
-Wiki for the iCub robot: [http://wiki.icub.org/wiki/Manual](http://wiki.icub.org/wiki/Manual)
-
-YARP website: [http://www.yarp.it/index.html](http://www.yarp.it/index.html)
-
-for more see [useful_links_iCub_YARP](./useful_links_iCub_YARP)
+see [useful_links_iCub_YARP](./useful_links_iCub_YARP)
 
 
 ## Authors
