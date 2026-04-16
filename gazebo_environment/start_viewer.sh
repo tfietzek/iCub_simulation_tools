@@ -8,7 +8,8 @@ xterm -e 'yarpview --name /view/right; bash' &
 sleep 6
 #### connect viewer with camera
 xterm -e 'yarp connect /icubSim/cam/right /view/right;sleep 0.5; exit; bash' &
-echo "started right eye viewer" 
+xterm -e 'yarp connect /icubSim/cam/right/rgbImage:o /view/right;sleep 0.5; exit; bash' &
+echo "connected right eye viewer" 
 
 sleep 1
 
@@ -18,4 +19,6 @@ xterm -e 'yarpview --name /view/left; bash' &
 sleep 3
 #### connect viewer with camera
 xterm -e 'yarp connect /icubSim/cam/left /view/left;sleep 0.5; exit; bash' &
-echo "started left eye viewer" 
+xterm -e 'yarp connect /icubSim/cam/left/rgbImage:o /view/left;sleep 0.5; exit; bash' &
+echo "connected left eye viewer" 
+
