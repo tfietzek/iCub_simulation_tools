@@ -1,6 +1,7 @@
 
 #!usr/bin/env bash -i
 BASEDIR=$(realpath "$0" | sed 's|\(.*\)/.*|\1|') # -> script path
+TOOLDIR=$(realpath "$0" | sed 's|\(.*\)/.*/.*|\1|') # -> Simtools path
 
 cpath=$(which conda)
 conda_path="${cpath%/*/*}"
@@ -24,27 +25,27 @@ conda create -n ${env_name} -y
 
 conda install -n ${env_name} -c conda-forge -c robotology yarp icub-main gz-sim-yarp-plugins icub-models -y
 
-if [ -z "${ICUB_INSTALL_PREFIX}" ] || [ "${ICUB_INSTALL_PREFIX}" != "${conda_path}/envs/robotologyenv" ];
-then
 echo "Set env variables in bashrc"
 cp ~/.bashrc $BASEDIR/.bashrc_prep_bak_$(date  "+%Y_%m_%d_%H_%M_%S")
 
+# Set environment variables for iCub and Gezeob Ressources (Models, Plugins, Worlds, ...) #
+
+conda env config vars set -n ${env_name} ICUB_INSTALL_PREFIX="$conda_path"/envs/"$env_name"
+conda env config vars set -n ${env_name} ICUB_INSTALL_PREFIX="ICUB_TOOLDIR="$TOOLDIR""
+
+# Official iCub stuff for gazebo
+conda env config vars set -n ${env_name} "YARP_DATA_DIRS=\${YARP_DATA_DIRS}:\$ICUB_INSTALL_PREFIX/share/yarp:\$ICUB_INSTALL_PREFIX/share/iCub"
+conda env config vars set -n ${env_name} "GZ_SIM_RESOURCE_PATH=\${GZ_SIM_RESOURCE_PATH}:\$ICUB_INSTALL_PREFIX/lib:\$ICUB_INSTALL_PREFIX/share/gazebo/models:\$ICUB_INSTALL_PREFIX/share/iCub/robots:\$ICUB_INSTALL_PREFIX/share"
+# Individual iCub stuff for gazebo
+conda env config vars set -n ${env_name} "GZ_SIM_RESOURCE_PATH=\${GZ_SIM_RESOURCE_PATH}:\$ICUB_TOOLDIR/gz_env/object_models:\$ICUB_TOOLDIR/gz_env/gazebo_config/worlds"
+
+# Add alias to .bashrc to activate environment easily 
 rcadditions="""
-alias iCub='conda activate ${env_name}'
-export ICUB_INSTALL_PREFIX="$conda_path"/envs/"$env_name"
+alias ${env_name}='conda activate ${env_name}'
 """
 
-rcadditions1='''
-# Env Variables for iCub/YARP/Gazebo
-export YARP_DATA_DIRS=${YARP_DATA_DIRS:+${YARP_DATA_DIRS}:}$ICUB_INSTALL_PREFIX/share/yarp:$ICUB_INSTALL_PREFIX/share/iCub
-export GZ_SIM_RESOURCE_PATH=${GZ_SIM_RESOURCE_PATH:+${GZ_SIM_RESOURCE_PATH}:}$ICUB_INSTALL_PREFIX/lib:$ICUB_INSTALL_PREFIX/share/gazebo/models:$ICUB_INSTALL_PREFIX/share/iCub/robots:$ICUB_INSTALL_PREFIX/share
-
-'''
-
 rcFile=~/.bashrc
+echo -e "$rcadditions" >> $rcFile
 
-echo -e "$rcadditions$rcadditions1" >> $rcFile
-
-fi
 
 echo "Finished"
