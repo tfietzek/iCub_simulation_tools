@@ -17,3 +17,6 @@ Miniforge3*.sh
 .bashrc_*
 
 *.zip
+
+# experimentals
+*test*.*

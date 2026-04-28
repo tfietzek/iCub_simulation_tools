@@ -7,10 +7,10 @@ The 3 scripts act as a shortcut to create or delete a conda environment for the 
 
 2. After reopening the terminal run the prepare script, which takes as an optional argument the environment name. Otherwise it is set to "iCub":
 ```bash
-    bash prepare_icub_conda.sh env_name
+    bash prepare_icub_conda.sh {env_name}
 ```
 
-3. The environment should be ready for work. After a restart of the terminal it can be activated either with "mamba activate iCub" or "iCub" which is set as an alias for the first command.
+3. The environment should be ready for work. After a restart of the terminal it can be activated either with "conda activate {env_name}" or "{env_name}", which is set as an alias in the .bashrc. Replace env_name with the real environment name (default: iCub).
 
 4. If conda is not used anymore, the third script can be used for a cleanup, deleting the !!whole conda installation!! and the entries in the bashrc (should only be used, if conda is installed via "install_icub_conda.sh"):
 ```bash
