@@ -1,5 +1,5 @@
 
-<sdf version='1.12'>
+<sdf version='1.11'>
 
   <model name="ground_plane">
     <static>true</static>
