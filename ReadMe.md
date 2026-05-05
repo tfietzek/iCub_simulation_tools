@@ -42,7 +42,7 @@ On the other hand there are python scripts to control the iCub and the environme
         - start_skin_gui_right_forearm.sh   -> start the skin gui for the right forearm; the simulator has to be started first
         - start_skin_gui_right_hand.sh      -> start the skin gui for the right hand; the simulator has to be started first
 
-    - gazebo_environment
+    - gazebo_environment -> scripts and files for classic gazebo
         - gazebo_config
             - test_arm          -> experimental seperation of the right arm
             - worldInterface    -> contains the ini file for the gazebo worldinterface plugin
@@ -57,6 +57,16 @@ On the other hand there are python scripts to control the iCub and the environme
         - start_cartesian_controller.sh -> start the necessary modules for the cartesian controller; the simulator has to be started first
         - start_environment.sh          -> start the gazebo-simulator with two viewers for the eye cameras and a predefined world
 
+    - gz_env -> scripts and files for modern gazebo
+        - gazebo_config
+            - worlds            -> contains predefined worlds for modern gazebo
+
+        - start_cartesian_controller.sh {right/left}_arm -> start the necessary modules for the cartesian controller; the simulator has to be started first
+        - start_simulator.sh (world_filename)                -> start yarpserver and modern gazebo simulator with the iCub (optional receives name of a sdf-world file)
+        - start_environment.sh      -> start the gazebo-simulator with two viewers for the eye cameras and a predefined world
+        - start_viewer.sh           -> start two viewers for the eye cameras
+        - connect_viewer.sh         -> connect two viewers for the eye camera to the robot
+
     - python_scripts -> contains python script for the work with the iCub/iCub-simulator
         - Python_libraries -> see [ReadMe](https://github.com/tfietzek/iCub_Python_Lib/blob/master/ReadMe.md) for documentation
             - since this is a git submodule, execute the init_icubpylib.sh for initialization once
@@ -64,8 +74,13 @@ On the other hand there are python scripts to control the iCub and the environme
 
         - example_joint_cartesian_control.py    -> example for the joint control of the iCub, cartesian control(position in space)
         - example_joint_position_control.py     -> example for the joint control of the iCub, postion control(joint angles)
+        - example_joint_forward_kinematics.py   -> iCub forward kinematic
+        - example_joint_inverse_kinematics.py   -> iCub inverse kinematic
+        - example_visual_perception.py          -> iCub camera
+        - example_scene_control.py              -> object/model crontrol for iCubSim and gazebo classic
+        - example_scene_video.py                -> video of the robot in the virtual environment (iCubSim and gazebo classic)
         - example_parameter_joint_control.py    -> parameter for the joint control example, e.g. transformationmatrix from simulator world reference frame to robot reference frame
-        - gazebo_world_controller.py            -> control the gazebo-simulator environment, e.g. import objects
+        - gazebo_world_controller.py            -> control the gazebo-classic environment, e.g. import objects
 
     - useful_links_iCub_YARP -> contains a collection of links, regarding different topics around the iCub ecosphere
     - init_icubpylib.sh -> initialize the iCub_Python_Lib submodule for the python examples (execute in your local clone of this repository)
@@ -99,8 +114,9 @@ if based on work of others, they are named in the files
     - SWIG    >= 3.0.12
     - xterm
 
-    - iCub-simulator      >=
-        or gazebo-simulator == 9.0 or 10.0
+    - iCub-simulator
+    - gazebo classic == 11.0
+    - modern gazebo >= 8.
 
 - Python Packages:
     - numpy
