@@ -25,7 +25,7 @@ def forward_kin_yarp():
 
     iCub_arm = icub.iCubArm("right_v2")
 
-    # Release torso links if they stay static and at zero position
+    # Release torso links if they are dynamic or different from zero
     # iCub_arm.releaseLink(0)
     # iCub_arm.releaseLink(1)
     # iCub_arm.releaseLink(2)

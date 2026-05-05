@@ -34,14 +34,22 @@ def visual_input_yarp():
     input_port_right_eye = yarp.Port()
     if not input_port_right_eye.open("/" + params.CLIENT_PREFIX + "/eyes/right"):
         print("[ERROR] Could not open right eye port")
-    if not yarp.Network.connect("/" + params.ROBOT_PREFIX + "/cam/right", "/" + params.CLIENT_PREFIX + "/eyes/right"):
+
+    # try to connect to the two possible ports for the right iCub camera
+    ret_eye_old = not yarp.Network.connect("/" + params.ROBOT_PREFIX + "/cam/right", "/" + params.CLIENT_PREFIX + "/eyes/right")
+    ret_eye_new = not yarp.Network.connect("/" + params.ROBOT_PREFIX + "/cam/right/rgbImage:o", "/" + params.CLIENT_PREFIX + "/eyes/right")
+    if ret_eye_old and ret_eye_new:
         print("[ERROR] Could not connect input_port_right_eye")
 
     # Port for left eye image
     input_port_left_eye = yarp.Port()
     if not input_port_left_eye.open("/" + params.CLIENT_PREFIX + "/eyes/left"):
         print("[ERROR] Could not open left eye port")
-    if not yarp.Network.connect("/" + params.ROBOT_PREFIX + "/cam/left", "/" + params.CLIENT_PREFIX + "/eyes/left"):
+
+    # try to connect to the two possible ports for the left iCub camera
+    ret_eye_old = not yarp.Network.connect("/" + params.ROBOT_PREFIX + "/cam/left", "/" + params.CLIENT_PREFIX + "/eyes/left")
+    ret_eye_new = not yarp.Network.connect("/" + params.ROBOT_PREFIX + "/cam/left/rgbImage:o", "/" + params.CLIENT_PREFIX + "/eyes/left")
+    if ret_eye_old and ret_eye_new:
         print("[ERROR] Could not connect input_port_left_eye")
 
     ######################################################################
@@ -95,10 +103,10 @@ def visual_input_yarp():
     print('----- Close opened ports -----')
 
     # disconnect the ports
-    if not yarp.Network.disconnect("/" + params.ROBOT_PREFIX + "/cam/right", input_port_right_eye.getName()):
+    if not yarp.Network.disconnect("/" + params.ROBOT_PREFIX + "/cam/right/rgbImage:o", input_port_right_eye.getName()):
         print("[ERROR] Could not disconnect input_port_right_eye")
 
-    if not yarp.Network.disconnect("/" + params.ROBOT_PREFIX + "/cam/left", input_port_left_eye.getName()):
+    if not yarp.Network.disconnect("/" + params.ROBOT_PREFIX + "/cam/left/rgbImage:o", input_port_left_eye.getName()):
         print("[ERROR] Could not disconnect input_port_left_eye")
 
     # close the ports

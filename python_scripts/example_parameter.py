@@ -23,7 +23,7 @@ CLIENT_PREFIX = "client"
 # set to robot name: normally "iCubSim" for simulation and "icub" for real robot
 ROBOT_PREFIX = "icubSim"
 
-MODE = "ANN_iCub_Interface"     # Possible options are: "yarp"; "icub_pylib"; "ANN_iCub_Interface"
+MODE = "icub_pylib"     # Possible options are: "yarp"; "icub_pylib"; "ANN_iCub_Interface"
 PATH_TO_INTERFACE_BUILD = ""    # "/path/to/Interface_ANNarchy_iCub/build" -> required only, if needed for import
 INTERFACE_INI_PATH = os.path.abspath("./data/") + "/"
 
@@ -48,8 +48,8 @@ if GAZEBO_SIM:
     Transfermat_robot2world = iTransform.Transfermat_robot2gazebo
     Transfermat_world2robot = iTransform.Transfermat_gazebo2robot
     # Initial hand position in Gazebo coordinate system
-    pos_hand_world_coord = iTransform.transform_position(pos_hand_world_coord, iTransform.Transfermat_iCubSim2gazebo)
-    pos_hand_world_coord_new = iTransform.transform_position(pos_hand_world_coord_new, iTransform.Transfermat_iCubSim2gazebo)
+    pos_hand_world_coord = np.concatenate((iTransform.transform_position(pos_hand_world_coord, iTransform.Transfermat_iCubSim2gazebo), np.array([1.])))
+    pos_hand_world_coord_new = np.concatenate((iTransform.transform_position(pos_hand_world_coord_new, iTransform.Transfermat_iCubSim2gazebo), np.array([1.])))
 else:
     Transfermat_robot2world = iTransform.Transfermat_robot2iCubSim
     Transfermat_world2robot = iTransform.Transfermat_iCubSim2robot
