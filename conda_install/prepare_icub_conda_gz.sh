@@ -10,7 +10,7 @@ conda_path="${cpath%/*/*}"
 
 . ~/.bashrc
 
-conda config --set auto_activate_base false
+conda config --set auto_activate false
 
 conda info
 
@@ -22,7 +22,6 @@ else
     env_name=$1
 fi
 conda create -n ${env_name} -y
-
 conda install -n ${env_name} -c conda-forge -c robotology yarp icub-main gz-sim-yarp-plugins icub-models -y
 
 echo "Set env variables in bashrc"
