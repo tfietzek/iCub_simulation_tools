@@ -61,9 +61,9 @@ On the other hand there are python scripts to control the iCub and the environme
     - *connect_viewer.sh* -> connect two viewers for the eye camera to the robot
     - *start_cartesian_controller.sh {right/left}\_arm* -> start the necessary modules for the cartesian controller; the simulator has to be started first
 
-  - gz_env -> scripts and files for modern gazebo
-    - gazebo_config
-      - worlds -> contains predefined worlds for modern gazebo
+  - __gz_environment__ -> scripts and files for modern gazebo
+    - __gazebo_config__
+      - __worlds__ -> contains predefined worlds for modern gazebo
     - *start_simulator.sh (world_filename)* -> start yarpserver and modern gazebo simulator with the iCub (optional receives name of a sdf-world file)
     - *start_simulator_no_gui.sh (world_filename)* -> start yarpserver and simulator; the simulator is started without a GUI-client
     - *start_simulator_no_gui_screen.sh (world_filename)* -> start yarpserver and simulator in screen sessions; the simulator is started without a GUI-client
