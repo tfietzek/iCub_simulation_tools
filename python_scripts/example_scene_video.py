@@ -12,8 +12,6 @@ Visual perception example
 ######################################################################
 
 import os
-import sys
-import time
 
 import matplotlib.image as img_save
 import matplotlib.pylab as plt
@@ -45,7 +43,7 @@ def scene_cam_yarp():
 
 
     ######################################################################
-    ############### Initialization of imgae data structures ##############
+    ############### Initialization of image data structures ##############
 
     scene_img_array = np.ones((240, 320, 3), np.uint8)
     scene_yarp_image = yarp.ImageRgb()
@@ -55,8 +53,8 @@ def scene_cam_yarp():
 
 
     ######################################################################
-    ################### Read camera images from robot ####################
-    print('----- Read images from robot cameras -----')
+    ######################### Read camera images #########################
+    print('----- Read images from world camera -----')
     camera_imgs = []
     for i in range(5):
         print("Image:", i)

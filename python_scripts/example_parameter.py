@@ -23,7 +23,7 @@ CLIENT_PREFIX = "client"
 # set to robot name: normally "iCubSim" for simulation and "icub" for real robot
 ROBOT_PREFIX = "icubSim"
 
-MODE = "icub_pylib"     # Possible options are: "yarp"; "icub_pylib"; "ANN_iCub_Interface"
+MODE = "yarp"     # Possible options are: "yarp"; "icub_pylib"; "ANN_iCub_Interface"
 PATH_TO_INTERFACE_BUILD = ""    # "/path/to/Interface_ANNarchy_iCub/build" -> required only, if needed for import
 INTERFACE_INI_PATH = os.path.abspath("./data/") + "/"
 

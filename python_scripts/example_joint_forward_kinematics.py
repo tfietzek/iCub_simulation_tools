@@ -42,14 +42,14 @@ def forward_kin_yarp():
         Transfermat_robot2world = iTransform.Transfermat_robot2iCubSim
 
     end_eff_pos = mot.yarpvec_2_npvec(iCub_arm.EndEffPosition())
-    print("End-Effector", end_eff_pos)  # (robot reference frame)
-    print("End-Effector", iTransform.transform_position(end_eff_pos,
+    print("End-Effector (robot RF)", end_eff_pos)  # (robot reference frame)
+    print("End-Effector (simulator RF)", iTransform.transform_position(end_eff_pos,
           Transfermat_robot2world))  # (simulator reference frame)
 
     # Retrieve position for specific joint of the kinematic chain
     joint3_pos = mot.yarpvec_2_npvec(iCub_arm.Position(3))
-    print("Joint 3", joint3_pos)    # (robot reference frame)
-    print("Joint 3", iTransform.transform_position(joint3_pos, Transfermat_robot2world))    # (simulator reference frame)
+    print("Joint 3 (robot RF)", joint3_pos)    # (robot reference frame)
+    print("Joint 3 (simulator RF)", iTransform.transform_position(joint3_pos, Transfermat_robot2world))    # (simulator reference frame)
 
 
 ######################################################################
@@ -98,14 +98,14 @@ def forward_kin_ANN_iCub_Interface():
 
     # print end-effector position
     end_eff_pos = kinreader.get_handposition()
-    print("End-Effector", end_eff_pos)  # (robot reference frame)
-    print("End-Effector", iTransform.transform_position(end_eff_pos,
+    print("End-Effector (robot RF)", end_eff_pos)  # (robot reference frame)
+    print("End-Effector (simulator RF)", iTransform.transform_position(end_eff_pos,
           Transfermat_robot2world))  # (simulator reference frame)
 
     # print position for specific joint of the kinematic chain
     joint3_pos = kinreader.get_jointposition(3)
-    print("Joint 3", joint3_pos)    # (robot reference frame)
-    print("Joint 3", iTransform.transform_position(joint3_pos, Transfermat_robot2world))    # (simulator reference frame)
+    print("Joint 3 (robot RF)", joint3_pos)    # (robot reference frame)
+    print("Joint 3 (simulator RF)", iTransform.transform_position(joint3_pos, Transfermat_robot2world))    # (simulator reference frame)
 
     # Close kinematic reader module
     kinreader.close(iCub)

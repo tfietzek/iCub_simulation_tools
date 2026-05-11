@@ -22,11 +22,12 @@ else
 fi
 
 conda create -y -n ${env_name} python==3.11
-conda install -y -n ${env_name} -c robotology opencv yarp icub-main gazebo-yarp-plugins icub-models
+conda install -y -n ${env_name} -c robotology yarp==3.10.1 icub-main==2.7.1 gazebo-yarp-plugins=4.12.0 icub-models==3.0.0 opencv
 
 
 echo "Set official iCub/YARP env variables in bashrc"
-cp ~/.bashrc $BASEDIR/.bashrc_prep_bak_$(date  "+%Y_%m_%d_%H_%M_%S")
+mkdir -p backup_bashrc/
+cp ~/.bashrc $BASEDIR/backup_bashrc/.bashrc_prep_bak_$(date  "+%Y_%m_%d_%H_%M_%S")
 
 ICUB_INSTALL_PREFIX="$conda_path"/envs/"$env_name"
 ICUB_TOOLDIR="$TOOLDIR"
@@ -34,8 +35,8 @@ ICUB_TOOLDIR="$TOOLDIR"
 # Official iCub stuff for gazebo
 conda env config vars set -n ${env_name} "YARP_DATA_DIRS=$ICUB_INSTALL_PREFIX/share/yarp:$ICUB_INSTALL_PREFIX/share/iCub"
 conda env config vars set -n ${env_name} "GAZEBO_PLUGIN_PATH=${ICUB_INSTALL_PREFIX}/lib"
-conda env config vars set -n ${env_name} "GAZEBO_RESOURCE_PATH=${ICUB_INSTALL_PREFIX}/share/gazebo-11/worlds:${ICUB_TOOLDIR}/gazebo_environment/gazebo_config/worlds"
-conda env config vars set -n ${env_name} "GAZEBO_MODEL_PATH=${ICUB_INSTALL_PREFIX}/share/gazebo/models:${ICUB_INSTALL_PREFIX}/share/iCub/robots:${ICUB_INSTALL_PREFIX}/share:${ICUB_TOOLDIR}/gazebo_environment/object_models:${ICUB_TOOLDIR}/gazebo_environment/gazebo_config/worlds"
+conda env config vars set -n ${env_name} "GAZEBO_RESOURCE_PATH=${ICUB_INSTALL_PREFIX}/share/gazebo-11/worlds:${ICUB_TOOLDIR}/gazebo_environment/gazebo_config/worlds:${ICUB_TOOLDIR}/gazebo_environment/gazebo_config/worldinterface"
+conda env config vars set -n ${env_name} "GAZEBO_MODEL_PATH=${ICUB_INSTALL_PREFIX}/share/gazebo/models:${ICUB_INSTALL_PREFIX}/share/iCub/robots:${ICUB_INSTALL_PREFIX}/share:${ICUB_TOOLDIR}/gazebo_environment/object_models:${ICUB_TOOLDIR}/gazebo_environment/gazebo_config/worlds:${ICUB_TOOLDIR}/gazebo_environment/gazebo_config/worldinterface:${ICUB_TOOLDIR}/gazebo_environment/gazebo_config"
 
 rcadditions="""
 alias ${env_name}='conda activate ${env_name}'

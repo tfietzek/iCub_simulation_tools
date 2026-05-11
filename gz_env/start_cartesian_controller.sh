@@ -5,7 +5,7 @@
 
 #### start CartesianControl Server
 echo "run CartesianControl Server"
-xterm -e 'yarprobotinterface --context simCartesianControl; bash' &
+xterm -e 'yarprobotinterface --context gazeboCartesianControl; bash' &
 echo "started CartesianControl Server"
 
 sleep 10
@@ -15,14 +15,14 @@ sleep 10
 if [ $1 ]
     then
         echo "run Cartesian Solver"
-        xterm -e "iKinCartesianSolver --context simCartesianControl --part $1 ; bash" &
+        xterm -e "iKinCartesianSolver --context gazeboCartesianControl --part $1 ; bash" &
         echo "started Cartesian Solver"
 fi
 
 if [ $2 ]
     then
         echo "run Cartesian Solver"
-        xterm -e "iKinCartesianSolver --context simCartesianControl --part $2 ; bash" &
+        xterm -e "iKinCartesianSolver --context gazeboCartesianControl --part $2 ; bash" &
         echo "started Cartesian Solver"
 fi
 

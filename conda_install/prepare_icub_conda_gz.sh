@@ -25,7 +25,8 @@ conda create -n ${env_name} -y
 conda install -n ${env_name} -c conda-forge -c robotology yarp icub-main gz-sim-yarp-plugins icub-models -y
 
 echo "Set env variables in bashrc"
-cp ~/.bashrc $BASEDIR/.bashrc_prep_bak_$(date  "+%Y_%m_%d_%H_%M_%S")
+mkdir -p backup_bashrc/
+cp ~/.bashrc $BASEDIR/backup_bashrc/.bashrc_prep_bak_$(date  "+%Y_%m_%d_%H_%M_%S")
 
 # Set environment variables for iCub and Gezeob Ressources (Models, Plugins, Worlds, ...) #
 

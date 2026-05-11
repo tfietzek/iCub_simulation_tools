@@ -31,6 +31,7 @@ rm -fr "${HOME}/.conda"
 rm -f Miniforge3-$(uname)-$(uname -m).sh
 
 # remove iCub related environment variables from bashrc
-cp ~/.bashrc $BASEDIR/.bashrc_remove_bak_$(date  "+%Y_%m_%d_%H_%M_%S")
+mkdir -p backup_bashrc/
+cp ~/.bashrc $BASEDIR/backup_bashrc/.bashrc_remove_bak_$(date  "+%Y_%m_%d_%H_%M_%S")
 var=$(cat ~/.bashrc | grep -Pvi "ICUB_INSTALL_PREFIX|# Env Variables for iCub/YARP/Gazebo|alias iCub.*='conda activate|# individual models/worlds for Gazebo|ICUB_TOOLDIR")
 echo -e "$var" > ~/.bashrc
