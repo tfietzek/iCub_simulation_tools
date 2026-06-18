@@ -35,13 +35,13 @@
     </light>
 
     <scene> 
-        <background> 255 255 255 </background>  # predefine the backgroundcolor for the current world
+        <background> 0 255 0 </background>  # predefine the backgroundcolor for the current world
         <shadow> 0 </shadow>            # turn off shadows -> helpful if objects and robot seems to dark
     </scene>
 
     <!-- Ground Plane -->
     <include>
-      <uri>model://ground_plane_white</uri>
+      <uri>model://ground_plane_green</uri>
     </include>
 
     <!-- iCub -->

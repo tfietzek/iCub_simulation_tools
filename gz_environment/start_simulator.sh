@@ -19,5 +19,5 @@ sleep 1
 
 #### start iCub simulator
 echo "run gazebo simulator" 
-xterm -e "gz sim -v 4 $file.sdf --verbose; bash" &
+xterm -e "gz sim -v 4 $file.sdf; bash" &
 echo "started gazebo simulator"

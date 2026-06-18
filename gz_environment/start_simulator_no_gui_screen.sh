@@ -21,5 +21,5 @@ sleep 1
 
 #### start iCub simulator
 echo "run gazebo simulator"
-screen -S iCub -p 1 -X stuff "DISPLAY= gz sim -v 4 -s -r --headless-rendering $file.sdf --verbose^M"
+screen -S iCub -p 1 -X stuff "DISPLAY= gz sim -v 4 -s -r --headless-rendering $file.sdf ^M"
 echo "started gazebo simulator"

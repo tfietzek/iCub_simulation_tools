@@ -21,6 +21,6 @@ sleep 1
 
 #### start iCub simulator
 echo "run gazebo simulator"
-screen -S iCub -p 1 -X stuff "gzserver $file --verbose^M"
+screen -S iCub -p 1 -X stuff "gzserver $file.world --verbose^M"
 echo "started gazebo simulator"
 
