@@ -1,13 +1,19 @@
 The 3 scripts act as a shortcut to create or delete a conda environment for the work with the iCub robot.
 
-1. Open a terminal and start the install script (skip if conda is already installed):
+1. Open a terminal and start the install script (skip if conda is already installed).
+*HINT: The path to this script should not exceed 103 characters*:
 ```bash
     bash install_icub_conda.sh
 ```
 
 2. After reopening the terminal run the prepare script, which takes as an optional argument the environment name. Otherwise it is set to "iCub":
+For the classic gazebo simulator:
 ```bash
     bash prepare_icub_conda.sh {env_name}
+```
+For the modern gazebo simulator:
+```bash
+    bash prepare_icub_conda_gz.sh {env_name}
 ```
 
 3. The environment should be ready for work. After a restart of the terminal it can be activated either with "conda activate {env_name}" or "{env_name}", which is set as an alias in the .bashrc. Replace env_name with the real environment name (default: iCub).

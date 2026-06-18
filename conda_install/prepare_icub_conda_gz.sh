@@ -35,7 +35,7 @@ ICUB_TOOLDIR="$TOOLDIR"
 
 # iCub stuff for YARP and gazebo
 conda env config vars set -n ${env_name} "YARP_DATA_DIRS=$ICUB_INSTALL_PREFIX/share/yarp:$ICUB_INSTALL_PREFIX/share/iCub"
-conda env config vars set -n ${env_name} "GZ_SIM_RESOURCE_PATH=$ICUB_INSTALL_PREFIX/lib:$ICUB_INSTALL_PREFIX/share/gazebo/models:$ICUB_INSTALL_PREFIX/share/iCub/robots:$ICUB_INSTALL_PREFIX/share:$ICUB_TOOLDIR/gz_env/object_models:$ICUB_TOOLDIR/gz_env/gazebo_config/worlds"
+conda env config vars set -n ${env_name} "GZ_SIM_RESOURCE_PATH=$ICUB_INSTALL_PREFIX/lib:$ICUB_INSTALL_PREFIX/share/gazebo/models:$ICUB_INSTALL_PREFIX/share/iCub/robots:$ICUB_INSTALL_PREFIX/share:$ICUB_TOOLDIR/gz_environment/object_models:$ICUB_TOOLDIR/gz_environment/gazebo_config/worlds"
 
 
 # Add alias to .bashrc to activate environment easily 
