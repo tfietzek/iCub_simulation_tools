@@ -1,6 +1,7 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
     <model name='pencil'>
+        <static>false</static>
         <pose frame=''>0.0 0.0 0.0 0.0 0.0 0.</pose>
         <link name='base_link_pencil'>
             <gravity>0</gravity>

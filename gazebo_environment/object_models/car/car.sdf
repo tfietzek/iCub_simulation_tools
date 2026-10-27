@@ -1,6 +1,7 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
     <model name='car'>
+        <static>false</static>
         <pose frame=''>0.0 0.0 0.0 0.0 0.0 0.</pose>
         <link name='base_link_car'>
             <gravity>0</gravity>
