@@ -5,8 +5,8 @@ __pycache__
 
 # vs code related files
 .vscode
-
 python_scripts/scene/
+.DS_Store
 
 # logs of start_all.sh
 gz_environment/logs/

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gazebohelper"
+version = "0.2.0"
+description = "Python-Bibliothek zum Spawnen und Steuern von Objekten im modernen Gazebo Sim."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+    { name = "" },
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7.0"]
+
+[tool.setuptools.packages.find]
+include = ["gazebohelper*"]
+exclude = ["tests*", "examples*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-ra -m \"not integration\""
+markers = [
+    "integration: benoetigt eine laufende Gazebo-Welt, siehe tests/integration/README.md",
+]
