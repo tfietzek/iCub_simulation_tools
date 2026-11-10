@@ -64,6 +64,7 @@ On the other hand there are python scripts to control the iCub and the environme
   - __gz_environment__ -> scripts and files for modern gazebo
     - __gazebo_config__
       - __worlds__ -> contains predefined worlds for modern gazebo
+    - *start_all.sh (world_filename) (--no-gui)* -> start yarpserver, simulator (server and GUI), cartesian controller and solvers for both arms in one terminal without xterm; waits until each program is ready, writes the outputs to logs/ and stops everything with Ctrl+C
     - *start_simulator.sh (world_filename)* -> start yarpserver and modern gazebo simulator with the iCub (optional receives name of a sdf-world file)
     - *start_simulator_no_gui.sh (world_filename)* -> start yarpserver and simulator; the simulator is started without a GUI-client
     - *start_simulator_no_gui_screen.sh (world_filename)* -> start yarpserver and simulator in screen sessions; the simulator is started without a GUI-client

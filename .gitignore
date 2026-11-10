@@ -8,6 +8,9 @@ __pycache__
 
 python_scripts/scene/
 
+# logs of start_all.sh
+gz_environment/logs/
+
 # filesystem
 .directory
 

@@ -8,7 +8,7 @@ conda_path="${cpath%/*/*}"
 
 
 
-. ~/.bashrc
+[ -f ~/.bashrc ] && . ~/.bashrc
 
 conda config --set auto_activate false
 
@@ -21,12 +21,11 @@ then
 else
     env_name=$1
 fi
-conda create -n ${env_name} -y
-conda install -n ${env_name} -c conda-forge -c robotology yarp icub-main gz-sim-yarp-plugins icub-models -y
+conda create -n ${env_name} --override-channels -c conda-forge -c robotology yarp icub-main gz-sim-yarp-plugins icub-models "dartsim-cpp>=6.19" opencv matplotlib -y || exit 1 # dartsim < 6.19 segfaults in gz sim physics (seen with gz-sim 10 on macOS arm64)
 
 echo "Set env variables in bashrc"
 mkdir -p backup_bashrc/
-cp ~/.bashrc $BASEDIR/backup_bashrc/.bashrc_prep_bak_$(date  "+%Y_%m_%d_%H_%M_%S")
+[ -f ~/.bashrc ] && cp ~/.bashrc $BASEDIR/backup_bashrc/.bashrc_prep_bak_$(date  "+%Y_%m_%d_%H_%M_%S")
 
 # Set environment variables for iCub and Gezeob Ressources (Models, Plugins, Worlds, ...) #
 
