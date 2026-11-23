@@ -86,7 +86,8 @@ On the other hand there are python scripts to control the iCub and the environme
     - *example_scene_control.py* -> object/model crontrol for iCubSim and gazebo classic
     - *example_scene_video.py* -> video of the robot in the virtual environment (iCubSim and gazebo classic)
     - *example_parameter_joint_control.py* -> parameter for the joint control example, e.g. transformationmatrix from simulator world reference frame to robot reference frame
-    - *gazebo_world_controller.py* -> control the gazebo-classic environment, e.g. import objects
+    - *gz_world_controller.py* -> control the modern gazebo (gz sim) environment, e.g. import objects (needs gz-transport-python)
+    - *gazebo_world_controller.py* -> deprecated, control the gazebo-classic environment; replaced by gz_world_controller.py
 
   - *useful_links_iCub_YARP* -> contains a collection of links, regarding different topics around the iCub ecosphere
   - *init_icubpylib.sh* -> initialize the iCub_Python_Lib submodule for the python examples (execute in your local clone of this repository)

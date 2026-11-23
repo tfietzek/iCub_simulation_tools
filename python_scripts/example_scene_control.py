@@ -24,7 +24,7 @@ import example_parameter as params
 
 ############# Import control classes for both simulators #############
 if params.GAZEBO_SIM:
-    import Python_libraries.gazebo_world_controller as gzbo_ctrl
+    import Python_libraries.gz_world_controller as gzbo_ctrl
 else:
     import Python_libraries.iCubSim_world_controller as iCubSim_ctrl
     import Python_libraries.iCubSim_model_groups_definition as mdl_define
@@ -48,12 +48,15 @@ def objects_gzbo():
 
     # create complex models
     # two ways:
-    # 1. add the model path in the .bashrc to the GAZEBO_MODEL_PATH variable
-    # car = gzbo_wrld_ctrl.create_model('/car/car.sdf', [0.5, 1, 0.5], [0, 0, 0])
+    # 1. model in the model path (GZ_SIM_RESOURCE_PATH)
+    # cup = gzbo_wrld_ctrl.create_model('model://cup', [0.5, 1, 0.5], [0, 0, 0])
 
     # 2. use full path to the model
-    model_path = os.path.abspath("../gazebo_environment/object_models")
-    car = gzbo_wrld_ctrl.create_model(model_path + '/car/car.sdf', [0.5, 1, 0.5], [0, 0, 0])
+    model_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../gazebo_environment/object_models")
+    # note: the car model crashes gz sim (one submesh has no normals)
+    model = gzbo_wrld_ctrl.create_model(model_path + '/cup/cup.sdf', [0.5, 1, 0.5], [0, 0, 0])
+    print("model:", model, gzbo_wrld_ctrl.get_pose(model))
+    time.sleep(4.)
 
     del gzbo_wrld_ctrl
 
