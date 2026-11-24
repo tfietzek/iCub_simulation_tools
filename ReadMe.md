@@ -72,6 +72,10 @@ On the other hand there are python scripts to control the iCub and the environme
     - *start_viewer.sh* -> start two viewers for the eye cameras
     - *connect_viewer.sh* -> connect two viewers for the eye camera to the robot
     - *start_cartesian_controller.sh {right/left}\_arm* -> start the necessary modules for the cartesian controller; the simulator has to be started first
+    - *start_gaze_controller.sh* -> start the gaze controller (iKinGazeCtrl); does not work properly with gz sim yet, see [redball ReadMe](./demos/redball/ReadMe.md)
+
+  - __demos__ -> demos for the modern gazebo (gz sim) iCub, one folder per demo
+    - __redball__ -> red ball demo: follow a red ball with the gaze and reach for it; see [ReadMe](./demos/redball/ReadMe.md)
 
   - __python_scripts__ -> contains python script for the work with the iCub/iCub-simulator
     - __Python_libraries__ -> see [ReadMe](https://github.com/tfietzek/iCub_Python_Lib/blob/master/ReadMe.md) for documentation

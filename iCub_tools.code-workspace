@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../gz-sim-yarp-plugins"
 		}
 	],
 	"settings": {}
