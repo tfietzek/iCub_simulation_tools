@@ -8,7 +8,7 @@ conda_path="${cpath%/*/*}"
 
 
 
-. ~/.bashrc
+[ -f ~/.bashrc ] && . ~/.bashrc
 
 conda config --set auto_activate false
 
@@ -21,12 +21,11 @@ then
 else
     env_name=$1
 fi
-conda create -n ${env_name} -y
-conda install -n ${env_name} -c conda-forge -c robotology yarp icub-main gz-sim-yarp-plugins icub-models -y
+conda create -n ${env_name} --override-channels -c conda-forge -c robotology yarp icub-main gz-sim-yarp-plugins icub-models "dartsim-cpp>=6.19" opencv matplotlib "gz-transport-python>=15" gz-sim-python -y || exit 1 # dartsim < 6.19 segfaults in gz sim physics (seen with gz-sim 10 on macOS arm64)
 
 echo "Set env variables in bashrc"
 mkdir -p backup_bashrc/
-cp ~/.bashrc $BASEDIR/backup_bashrc/.bashrc_prep_bak_$(date  "+%Y_%m_%d_%H_%M_%S")
+[ -f ~/.bashrc ] && cp ~/.bashrc $BASEDIR/backup_bashrc/.bashrc_prep_bak_$(date  "+%Y_%m_%d_%H_%M_%S")
 
 # Set environment variables for iCub and Gezeob Ressources (Models, Plugins, Worlds, ...) #
 
@@ -35,7 +34,7 @@ ICUB_TOOLDIR="$TOOLDIR"
 
 # iCub stuff for YARP and gazebo
 conda env config vars set -n ${env_name} "YARP_DATA_DIRS=$ICUB_INSTALL_PREFIX/share/yarp:$ICUB_INSTALL_PREFIX/share/iCub"
-conda env config vars set -n ${env_name} "GZ_SIM_RESOURCE_PATH=$ICUB_INSTALL_PREFIX/lib:$ICUB_INSTALL_PREFIX/share/gazebo/models:$ICUB_INSTALL_PREFIX/share/iCub/robots:$ICUB_INSTALL_PREFIX/share:$ICUB_TOOLDIR/gz_environment/object_models:$ICUB_TOOLDIR/gz_environment/gazebo_config/worlds"
+conda env config vars set -n ${env_name} "GZ_SIM_RESOURCE_PATH=$ICUB_INSTALL_PREFIX/lib:$ICUB_INSTALL_PREFIX/share/gazebo/models:$ICUB_INSTALL_PREFIX/share/iCub/robots:$ICUB_INSTALL_PREFIX/share:$ICUB_TOOLDIR/gazebo_environment/object_models:$ICUB_TOOLDIR/gz_environment/gazebo_config/worlds"
 
 
 # Add alias to .bashrc to activate environment easily 

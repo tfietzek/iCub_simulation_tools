@@ -64,6 +64,7 @@ On the other hand there are python scripts to control the iCub and the environme
   - __gz_environment__ -> scripts and files for modern gazebo
     - __gazebo_config__
       - __worlds__ -> contains predefined worlds for modern gazebo
+    - *start_all.sh (world_filename) (--no-gui)* -> start yarpserver, simulator (server and GUI), cartesian controller and solvers for both arms in one terminal without xterm; waits until each program is ready, writes the outputs to logs/ and stops everything with Ctrl+C
     - *start_simulator.sh (world_filename)* -> start yarpserver and modern gazebo simulator with the iCub (optional receives name of a sdf-world file)
     - *start_simulator_no_gui.sh (world_filename)* -> start yarpserver and simulator; the simulator is started without a GUI-client
     - *start_simulator_no_gui_screen.sh (world_filename)* -> start yarpserver and simulator in screen sessions; the simulator is started without a GUI-client
@@ -71,6 +72,10 @@ On the other hand there are python scripts to control the iCub and the environme
     - *start_viewer.sh* -> start two viewers for the eye cameras
     - *connect_viewer.sh* -> connect two viewers for the eye camera to the robot
     - *start_cartesian_controller.sh {right/left}\_arm* -> start the necessary modules for the cartesian controller; the simulator has to be started first
+    - *start_gaze_controller.sh* -> start the gaze controller (iKinGazeCtrl); does not work properly with gz sim yet, see [redball ReadMe](./demos/redball/ReadMe.md)
+
+  - __demos__ -> demos for the modern gazebo (gz sim) iCub, one folder per demo
+    - __redball__ -> red ball demo: follow a red ball with the gaze and reach for it; see [ReadMe](./demos/redball/ReadMe.md)
 
   - __python_scripts__ -> contains python script for the work with the iCub/iCub-simulator
     - __Python_libraries__ -> see [ReadMe](https://github.com/tfietzek/iCub_Python_Lib/blob/master/ReadMe.md) for documentation
@@ -85,7 +90,8 @@ On the other hand there are python scripts to control the iCub and the environme
     - *example_scene_control.py* -> object/model crontrol for iCubSim and gazebo classic
     - *example_scene_video.py* -> video of the robot in the virtual environment (iCubSim and gazebo classic)
     - *example_parameter_joint_control.py* -> parameter for the joint control example, e.g. transformationmatrix from simulator world reference frame to robot reference frame
-    - *gazebo_world_controller.py* -> control the gazebo-classic environment, e.g. import objects
+    - *gz_world_controller.py* -> control the modern gazebo (gz sim) environment, e.g. import objects (needs gz-transport-python)
+    - *gazebo_world_controller.py* -> deprecated, control the gazebo-classic environment; replaced by gz_world_controller.py
 
   - *useful_links_iCub_YARP* -> contains a collection of links, regarding different topics around the iCub ecosphere
   - *init_icubpylib.sh* -> initialize the iCub_Python_Lib submodule for the python examples (execute in your local clone of this repository)

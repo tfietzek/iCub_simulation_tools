@@ -85,7 +85,7 @@ def cartesian_ctrl_yarp():
     new_hand_pos_r_np = np.dot(T_w2r, welt_pos_n.reshape((4, 1))).reshape((4,))
     new_hand_pos_r_yarp = yarp.Vector(new_hand_pos_r_np[0:3].shape[0])
     for i in range(new_hand_pos_r_np[0:3].shape[0]):
-        init_hand_pos_r_yarp.set(i, new_hand_pos_r_np[0:3][i])
+        new_hand_pos_r_yarp.set(i, new_hand_pos_r_np[0:3][i])
 
     iCart.goToPoseSync(new_hand_pos_r_yarp, orient_hand)
     iCart.waitMotionDone(timeout=5.0)
