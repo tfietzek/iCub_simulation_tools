@@ -20,3 +20,5 @@ Miniforge3*.sh
 
 # experimentals
 *test*.*
+
+logs/
